@@ -6,28 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./js/index.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Start</title>
 </head>
 
 <body class="bg-gray-900 text-white">
-  <header>
-    <nav class="bg-gray-800 sticky top-0 z-50">
+  <header class="sticky top-0 z-50">
+    <nav class="bg-gray-800">
       <div class="container mx-auto py-4 flex justify-between items-center">
-        <div class="flex">
-          <h1 class="text-3xl font-bold">MARTIN</h1>
-          <h1 class="text-3xl font-bold text-gray-700">MYRDHÈN</h1>
-        </div>
-        <div class="flex md:hidden">
-          <button data-collapse-toggle="navbar-menu" type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-menu" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15" />
-            </svg>
-          </button>
-        </div>
-        <div class="hidden md:flex items-center space-x-10">
+        <div class="flex items-center space-x-10">
           <ul class="flex space-x-10">
             <li>
               <a href="startsida.html" class="text-gray-50">Start</a>
@@ -42,8 +29,22 @@
               <a href="kontakt.html" class="text-gray-50">Contact</a>
             </li>
           </ul>
-          <input class="outline-none rounded-3xl ps-2 text-gray-700" placeholder="Search" type="search" name="s"
-            id="search">
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="relative hidden md:block">
+            <input type="text" id="search-navbar"
+              class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search...">
+          </div>
+          <button data-collapse-toggle="navbar-menu" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
         </div>
       </div>
       <div class="hidden md:hidden" id="navbar-menu">
@@ -60,11 +61,28 @@
           <li>
             <a href="kontakt.html" class="text-gray-50">Contact</a>
           </li>
+          <li>
+            <input type="text" id="search-navbar-mobile"
+              class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search...">
+          </li>
         </ul>
       </div>
     </nav>
-    <div class="container w-full h-64">
-      <img src="" class="w-full h-64">
+    <div class="w-full h-60 flex flex-col p-2"
+      style="background: rgb(2,0,36); background: linear-gradient(90deg, rgb(3, 2, 27) 0%, rgb(3, 3, 48) 35%, rgba(17,24,39,1) 100%);">
+      <div class="flex">
+        <h1 class="text-5xl font-bold">MARTIN</h1>
+        <h1 class="text-5xl font-bold text-gray-800 ml-0 ">MYRDHÈN</h1>
+      </div>
+      <article class="max-w-[600px]">
+        <p class="font-bold text-2xl text-gray-700">Welcome to my portfolio!</p>
+        <p>My name is Martin, a dedicated Frontend Developer currently studying at IT
+          Högskolan
+          in Gothenburg. My journey in web development has been fueled by a passion for crafting engaging and responsive
+          digital experiences.</p>
+      </article>
+      <img src="#" alt="">
     </div>
   </header>
 </body>
