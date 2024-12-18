@@ -10,12 +10,13 @@
   <title>Startsida</title>
 </head>
 
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col bg-gray-100">
   <header class="sticky top-0 z-50">
     <nav class=" p-2 bg-gradient-to-r from-cyan-900 to-blue-950">
-      <div class="container mx-auto flex justify-between items-center">
+      <div class="container flex items-center">
+        <span class="text-white font-bold border-r pr-2">MartinMyrdhén</span>
         <div class="flex items-center space-x-10">
-          <ul class="hidden md:flex space-x-5 ms-2">
+          <ul class="hidden md:flex space-x-5 ms-2 me-2">
             <li>
               <a href="startsida.html" class="text-white hover:text-black">Start</a>
             </li>
@@ -30,7 +31,7 @@
             </li>
           </ul>
         </div>
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-4 ms-auto">
           <div class="relative hidden md:block">
             <input type="text" id="search-navbar"
               class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white"
@@ -72,34 +73,67 @@
   </header>
 
   <section>
-    <div class="min-h-60 w-full bg-cover bg-center"
+    <div class="h-60 w-full bg-cover bg-center flex flex-col justify-center"
       style="background-image: url(./img/yaroslav-a-0rSrUYHg5l8-unsplash.jpg);">
+      <h1 class="font-bold text-3xl lg:text-6xl text-white self-center">Welcome</h1>
+      <p class="text-white self-center">This is where the journey begins!</p>
     </div>
   </section>
 
-  <main class="p-4 flex-auto flex flex-col">
-    <h2 class="font-bold text-2xl self-start">Welcome to my portfolio!</h2>
+  <main class="p-4 flex-auto flex flex-col justify-center">
     <div class="max-w-sm w-full lg:max-w-full lg:flex self-center mt-4">
       <div
         class="h-56 lg:h-auto lg:w-48 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
         style="background-image: url('./img/1697911452505.jpg');" title="Martin">
       </div>
       <div
-        class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        class="bg-gray-200 rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
-          <p class="text-sm text-gray-600 flex items-center">
-            <svg class="fill-current text-gray-500 w-3 h-3 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path
-                d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z" />
-            </svg>
-            Members only
-          </p>
-          <div class="text-gray-900 font-bold text-xl mb-2">Can coffee make you a better developer?</div>
-          <p class="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-            quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
+          <div class="text-gray-900 font-bold text-xl mb-2">Martin Myrdhén</div>
+          <p class="text-base">Hello! I am a Frontend Developer with a passion for creating beautiful and
+            functional web applications. I am currently studying at ITHS, where I am honing my skills in HTML, CSS,
+            JavaScript, and various frontend frameworks.</p>
+          <p class="text-base mb-0 mt-3 font-semibold">Techstack</p>
+          <div class="flex flex-col">
+            <div class="flex lg:space-x-4">
+              <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
+                <img src="./img/techstack/html.png" width="50" alt="HTML">
+              </a>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">
+                <img src="./img/techstack/css.png" width="50" alt="CSS">
+              </a>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
+                <img src="./img/techstack/js.png" width="50" alt="JavaScript">
+              </a>
+              <a href="https://reactjs.org/" target="_blank">
+                <img src="./img/techstack/react.png" width="50" alt="React">
+              </a>
+              <a href="https://vuejs.org/" target="_blank">
+                <img src="./img/techstack/vue.png" width="50" alt="Vue">
+              </a>
+            </div>
+            <div class="flex lg:space-x-4">
+              <a href="https://angular.io/" target="_blank">
+                <img src="./img/techstack/angular.png" width="50" alt="Angular">
+              </a>
+              <a href="https://nodejs.org/" target="_blank">
+                <img src="./img/techstack/node.png" width="50" alt="Node.js">
+              </a>
+              <a href="https://www.postgresql.org/" target="_blank">
+                <img src="./img/techstack/postgres.png" width="50" alt="PostgreSQL">
+              </a>
+              <a href="https://expressjs.com/" target="_blank">
+                <img src="./img/techstack/icons8-express-js-50.png" width="50" alt="Express.js">
+              </a>
+              <a href="https://www.mysql.com/" target="_blank">
+                <img src="./img/techstack/mysql.png" width="50" alt="MySQL">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
   </main>
 
   <footer class="bg-gradient-to-r from-cyan-900 to-blue-950" py-4 mt-auto">
