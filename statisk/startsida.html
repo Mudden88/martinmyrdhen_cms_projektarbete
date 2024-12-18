@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./js/index.js"></script>
+  <script src="https://kit.fontawesome.com/b20e134e2c.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./css/style.css">
   <title>Startsida</title>
 </head>
@@ -14,7 +15,8 @@
   <header class="sticky top-0 z-50">
     <nav class=" p-2 bg-gradient-to-r from-cyan-900 to-blue-950">
       <div class="container flex items-center">
-        <span class="text-white font-bold border-r pr-2">MartinMyrdhén</span>
+        <a href="#">
+          <span class="text-white font-bold border-r pr-2">MartinMyrdhén</span></a>
         <div class="flex items-center space-x-10">
           <ul class="hidden md:flex space-x-5 ms-2 me-2">
             <li>
@@ -75,8 +77,8 @@
   <section>
     <div class="h-60 w-full bg-cover bg-center flex flex-col justify-center"
       style="background-image: url(./img/yaroslav-a-0rSrUYHg5l8-unsplash.jpg);">
-      <h1 class="font-bold text-3xl lg:text-6xl text-white self-center">Welcome</h1>
-      <p class="text-white self-center">This is where the journey begins!</p>
+      <h1 class="font-bold text-3xl lg:text-6xl text-white self-center">MartinMyrdhén</h1>
+      <p class="text-white self-center mt-2">Creating the Future, One Line at a Time</p>
     </div>
   </section>
 
@@ -86,15 +88,16 @@
         class="h-56 lg:h-auto lg:w-48 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
         style="background-image: url('./img/1697911452505.jpg');" title="Martin">
       </div>
-      <div
-        class="bg-gray-200 rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+      <div class="bg-gray-200 rounded-b lg:rounded-b p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
-          <div class="text-gray-900 font-bold text-xl mb-2">Martin Myrdhén</div>
-          <p class="text-base">Hello! I am a Frontend Developer with a passion for creating beautiful and
+          <div class="text-gray-900 font-bold text-3xl mb-2">Hello!</div>
+          <p class="text-base">I am a Frontend Developer with a passion for creating beautiful and
             functional web applications. I am currently studying at ITHS, where I am honing my skills in HTML, CSS,
-            JavaScript, and various frontend frameworks.</p>
-          <p class="text-base mb-0 mt-3 font-semibold">Techstack</p>
-          <div class="flex flex-col">
+            JavaScript, and various frontend frameworks. I enjoy problem-solving and continuously learning new
+            technologies to improve my craft. My goal is to build user-friendly and efficient web applications that
+            provide a seamless user experience.</p>
+          <p class="text-2xl mb-0 mt-3 font-semibold">Techstack</p>
+          <div class="flex flex-col text-center">
             <div class="flex lg:space-x-4">
               <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">
                 <img src="./img/techstack/html.png" width="50" alt="HTML">
@@ -129,19 +132,34 @@
                 <img src="./img/techstack/mysql.png" width="50" alt="MySQL">
               </a>
             </div>
+
+          </div>
+          <div class="text-center space-x-2 lg:space-x-4">
+            <a href="projekt-index.html"
+              class="bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center">
+              Projects
+            </a>
+            <a href="kontakt.html"
+              class="bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center">
+              Contact
+            </a>
+            <a href="om-mig.html"
+              class="bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center">
+              About
+            </a>
           </div>
         </div>
       </div>
     </div>
   </main>
-  <footer class="bg-gradient-to-r from-cyan-900 to-blue-950" py-4 mt-auto">
-    <div class="container mx-auto text-center text-white">
-      <p>&copy; 2024 Martin Myrdhèn. All rights reserved.</p>
-      <div class="flex justify-center space-x-4 mt-2">
-        <a href="#" class="text-gray-50 hover:text-black">Twitter</a>
-        <a href="#" class="text-gray-50 hover:text-black">LinkedIn</a>
-        <a href="#" class="text-gray-50 hover:text-black">GitHub</a>
-      </div>
+  <footer
+    class="w-full text-white bg-gradient-to-r from-cyan-900 to-blue-950 py-4 mt-auto flex justify-between items-end px-4">
+    <p class="text-center">&copy; 2024 Martin Myrdhèn. All rights reserved.</p>
+    <div class="flex flex-col space-y-2">
+      <p class="text-xl">Socials:</p>
+      <a href="#" class="text-gray-50 hover:text-gray-300"><i class="fa-brands fa-facebook"></i>Facebook</a>
+      <a href="#" class="text-gray-50 hover:text-gray-300"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+      <a href="#" class="text-gray-50 hover:text-gray-300"><i class="fa-brands fa-github"></i>GitHub</a>
     </div>
   </footer>
 </body>

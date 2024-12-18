@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./js/index.js"></script>
+  <script src="https://kit.fontawesome.com/b20e134e2c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Contact</title>
+</head>
+
+<body class="min-h-screen flex flex-col bg-gray-100">
+  <header class="sticky top-0 z-50">
+    <nav class=" p-2 bg-gradient-to-r from-cyan-900 to-blue-950">
+      <div class="container flex items-center">
+        <span class="text-white font-bold border-r pr-2">MartinMyrdhén</span>
+        <div class="flex items-center space-x-10">
+          <ul class="hidden md:flex space-x-5 ms-2 me-2">
+            <li>
+              <a href="startsida.html" class="text-white hover:text-black">Start</a>
+            </li>
+            <li>
+              <a href="om-mig.html" class="text-white hover:text-black">About</a>
+            </li>
+            <li>
+              <a href="projekt-index.html" class="text-white hover:text-black">Projects</a>
+            </li>
+            <li>
+              <a href="kontakt.html" class="text-white hover:text-black">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex items-center space-x-4 ms-auto">
+          <div class="relative hidden md:block">
+            <input type="text" id="search-navbar"
+              class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white"
+              placeholder="Search...">
+          </div>
+          <button data-collapse-toggle="navbar-menu" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="hidden md:hidden" id="navbar-menu">
+        <ul class="flex flex-col space-y-2 p-4">
+          <li>
+            <a href="startsida.html" class="text-white hover:text-black">Start</a>
+          </li>
+          <li>
+            <a href="om-mig.html" class="text-white hover:text-black">About</a>
+          </li>
+          <li>
+            <a href="projekt-index.html" class="text-white hover:text-black">Projects</a>
+          </li>
+          <li>
+            <a href="kontakt.html" class="text-white hover:text-black">Contact</a>
+          </li>
+          <li>
+            <input type="text" id="search-navbar-mobile"
+              class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+              placeholder="Search...">
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <div class="h-60 w-full bg-cover bg-center flex flex-col justify-center"
+      style="background-image: url(./img/yaroslav-a-0rSrUYHg5l8-unsplash.jpg);">
+    </div>
+  </section>
+  <main class="p-4 flex-auto flex flex-col justify-center">
+    <section>
+      <div class="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-6 text-gray-900">Contact</h2>
+        <form action="#" method="POST">
+          <div class="mb-4">
+            <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+            <input type="text" id="name" name="name" required
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+            <input type="email" id="email" name="email" required
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+          </div>
+          <div class="mb-4">
+            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+            <textarea id="message" name="message" rows="5" required
+              class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit"
+              class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+              Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer
+    class="w-full text-white bg-gradient-to-r from-cyan-900 to-blue-950 py-4 mt-auto flex justify-between items-end px-4">
+    <p class="text-center">&copy; 2024 Martin Myrdhèn. All rights reserved.</p>
+    <div class="flex flex-col space-y-2">
+      <p class="text-xl">Socials:</p>
+      <a href="#" class="text-gray-50 hover:text-gray-300"><i class="fa-brands fa-facebook"></i>Facebook</a>
+      <a href="#" class="text-gray-50 hover:text-gray-300"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+      <a href="#" class="text-gray-50 hover:text-gray-300"><i class="fa-brands fa-github"></i>GitHub</a>
+    </div>
+  </footer>
+</body>
+
+</html>
