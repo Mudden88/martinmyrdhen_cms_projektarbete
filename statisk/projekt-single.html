@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./js/index.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Projects - Projekt</title>
+</head>
+
+<body class="min-h-screen flex flex-col bg-gray-100">
+  <header class="sticky top-0 z-50">
+    <nav class=" p-2 bg-gradient-to-r from-cyan-900 to-blue-950">
+      <div class="container flex items-center">
+        <span class="text-white font-bold border-r pr-2">MartinMyrdhén</span>
+        <div class="flex items-center space-x-10">
+          <ul class="hidden md:flex space-x-5 ms-2 me-2">
+            <li>
+              <a href="startsida.html" class="text-white hover:text-black">Start</a>
+            </li>
+            <li>
+              <a href="om-mig.html" class="text-white hover:text-black">About</a>
+            </li>
+            <li>
+              <a href="projekt-index.html" class="text-white hover:text-black">Projects</a>
+            </li>
+            <li>
+              <a href="kontakt.html" class="text-white hover:text-black">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="flex items-center space-x-4 ms-auto">
+          <div class="relative hidden md:block">
+            <input type="text" id="search-navbar"
+              class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white"
+              placeholder="Search...">
+          </div>
+          <button data-collapse-toggle="navbar-menu" type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-menu" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="hidden md:hidden" id="navbar-menu">
+        <ul class="flex flex-col space-y-2 p-4">
+          <li>
+            <a href="startsida.html" class="text-white hover:text-black">Start</a>
+          </li>
+          <li>
+            <a href="om-mig.html" class="text-white hover:text-black">About</a>
+          </li>
+          <li>
+            <a href="projekt-index.html" class="text-white hover:text-black">Projects</a>
+          </li>
+          <li>
+            <a href="kontakt.html" class="text-white hover:text-black">Contact</a>
+          </li>
+          <li>
+            <input type="text" id="search-navbar-mobile"
+              class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
+              placeholder="Search...">
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <section>
+    <div class="h-60 w-full bg-cover bg-center flex flex-col justify-center"
+      style="background-image: url(./img/yaroslav-a-0rSrUYHg5l8-unsplash.jpg);">
+      <h1 class="font-bold text-3xl lg:text-6xl text-white self-center">*Project*</h1>
+    </div>
+
+  </section>
+
+  <main class="p-4 flex-auto flex flex-col justify-center">
+    <section>
+      <div class="container py-8">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg" alt="Project 1"
+            class="w-full h-48 object-cover">
+          <div class="p-4">
+            <h2 class="font-bold text-xl mb-2">Project Name</h2>
+            <p class="text-gray-700">Description project..... Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Facere nisi accusamus amet aut ipsa nam odio est reprehenderit recusandae dolor enim ea fugiat, quod
+              assumenda. Rerum at mollitia voluptatum voluptas!</p>
+            <div class="flex space-x-2">
+              <a href="#" class="text-blue-500 hover:underline mt-2 block">Visit</a>
+              <a href="#" class="text-blue-500 hover:underline mt-2 block">Github</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-gradient-to-r from-cyan-900 to-blue-950" py-4 mt-auto">
+    <div class="container mx-auto text-center text-white">
+      <p>&copy; 2024 Martin Myrdhèn. All rights reserved.</p>
+      <div class="flex justify-center space-x-4 mt-2">
+        <a href="#" class="text-gray-50 hover:text-black">Twitter</a>
+        <a href="#" class="text-gray-50 hover:text-black">LinkedIn</a>
+        <a href="#" class="text-gray-50 hover:text-black">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
