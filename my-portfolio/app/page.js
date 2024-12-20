@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 export default function Home() {
 
   const buttonClass = "bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center"
@@ -22,9 +23,9 @@ export default function Home() {
           <div className="bg-gray-200 rounded-b lg:rounded-b p-4 flex flex-col justify-between leading-normal">
             <div className="mb-8">
               <article>
-                <div className="text-gray-900 font-bold text-3xl mb-2">Hello!</div>
+                <div className="text-gray-900 font-bold text-3xl mb-2">Hello!*</div>
                 <p className="text-base">Contentful PlaceHolder text</p>
-                <p className="text-2xl mb-0 mt-3 font-semibold">Techstack</p>
+                <p className="text-2xl mb-0 mt-3 font-semibold">Techstack*</p>
                 <div className="flex flex-col text-center">
                   <div className="flex lg:space-x-4">
                     Contentful PlaceHolder Images
