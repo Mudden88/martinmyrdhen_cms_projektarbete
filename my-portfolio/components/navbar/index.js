@@ -26,7 +26,7 @@ export default function Navbar() {
     <nav className=" p-2 bg-gradient-to-r from-cyan-900 to-blue-950">
       <div className="container flex items-center">
         <Link href="/">
-          <span className="text-white font-bold border-r pr-2">MartinMyrdhén</span></Link>
+          <span className="text-white font-bold border-r pr-2">ContentFul SiteTitle</span></Link>
         <div className="flex items-center space-x-10">
           <ul className="hidden md:flex space-x-5 ms-2 me-2">
             {
