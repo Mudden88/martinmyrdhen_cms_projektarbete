@@ -1,5 +1,8 @@
 import Link from "next/link";
 export default function Home() {
+
+  const buttonClass = "bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center"
+
   return (
     <>
       <section>
@@ -28,9 +31,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="mt-10 space-x-2 lg:space-x-4">
-                  <Link href={"/projects"} className="bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center">Projects</Link>
-                  <Link href={"/contact"} className="bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center">Contact</Link>
-                  <Link href={"/about"} className="bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center">About</Link>
+                  <Link href={"/projects"} className={buttonClass}>Projects</Link>
+                  <Link href={"/contact"} className={buttonClass}>Contact</Link>
+                  <Link href={"/about"} className={buttonClass}>About</Link>
                 </div>
               </article>
             </div>
