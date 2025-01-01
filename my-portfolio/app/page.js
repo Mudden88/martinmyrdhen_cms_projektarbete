@@ -1,16 +1,20 @@
 import Link from "next/link";
+import { getMetaData } from "@/lib/api";
 
-export default function Home() {
+export default async function Home() {
 
   const buttonClass = "bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center"
+  const metadata = await getMetaData();
+
 
   return (
     <>
       <section>
+
         <div className="h-60 w-full bg-cover bg-center flex flex-col justify-center"
           style={{ backgroundImage: "url('yaroslav-a-0rSrUYHg5l8-unsplash.jpg')" }}>
-          <h1 className="font-bold text-3xl lg:text-6xl text-white self-center">Contentful Title</h1>
-          <p className="text-white self-center mt-2">Contentful text</p>
+          <h1 className="font-bold text-3xl lg:text-6xl text-white self-center">{metadata[0]?.heroTitle}</h1>
+          <p className="text-white self-center mt-2">{metadata[0]?.heroText}</p>
         </div>
       </section>
       <main className="p-4 flex-auto flex flex-col justify-center">
