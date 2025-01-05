@@ -1,16 +1,14 @@
+"use client";
 import Link from "next/link";
-import { getMetaData } from "@/lib/api";
+import { useMetadata } from "./context/metadataContext";
 
-export default async function Home() {
-
-  const buttonClass = "bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center"
-  const metadata = await getMetaData();
-
+export default function Home() {
+  const buttonClass = "bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center";
+  const metadata = useMetadata();
 
   return (
     <>
       <section>
-
         <div className="h-60 w-full bg-cover bg-center flex flex-col justify-center"
           style={{ backgroundImage: "url('yaroslav-a-0rSrUYHg5l8-unsplash.jpg')" }}>
           <h1 className="font-bold text-3xl lg:text-6xl text-white self-center">{metadata[0]?.heroTitle}</h1>
@@ -32,13 +30,8 @@ export default async function Home() {
                 <p className="text-2xl mb-0 mt-3 font-semibold">Techstack*</p>
                 <div className="flex flex-col text-center">
                   <div className="flex lg:space-x-4">
-                    Contentful PlaceHolder Images
+                    {/* Contentful PlaceHolder Images */}
                   </div>
-                </div>
-                <div className="mt-10 space-x-2 lg:space-x-4">
-                  <Link href={"/projects"} className={buttonClass}>Projects</Link>
-                  <Link href={"/contact"} className={buttonClass}>Contact</Link>
-                  <Link href={"/about"} className={buttonClass}>About</Link>
                 </div>
               </article>
             </div>
@@ -46,6 +39,5 @@ export default async function Home() {
         </div>
       </main>
     </>
-
   );
 }

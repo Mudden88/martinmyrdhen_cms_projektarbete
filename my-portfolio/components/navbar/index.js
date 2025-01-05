@@ -1,15 +1,17 @@
-"use client"
+"use client";
 import { useEffect } from "react";
 import Link from "next/link";
-
-const navigation = [
-  { href: "/", label: "Start" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
-  { href: "/contact", label: "Contact" }
-];
+import { useMetadata } from "@/app/context/metadataContext";
 
 export default function Navbar() {
+  const metadata = useMetadata();
+
+  const navigation = [
+    { href: "/", label: "Start" },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/contact", label: "Contact" }
+  ];
 
   useEffect(() => {
     const menuButton = document.querySelector('[data-collapse-toggle="navbar-menu"]');
@@ -20,24 +22,26 @@ export default function Navbar() {
     };
 
     menuButton.addEventListener('click', toggleMenu);
-  }, [])
+    return () => {
+      menuButton.removeEventListener('click', toggleMenu);
+    };
+  }, []);
 
   return (
-    <nav className=" p-2 bg-gradient-to-r from-cyan-900 to-blue-950">
+    <nav className="p-2 bg-gradient-to-r from-cyan-900 to-blue-950">
       <div className="container flex items-center">
         <Link href="/">
-          <span className="text-white font-bold border-r pr-2">ContentFul SiteTitle</span></Link>
+          <span className="text-white font-bold border-r pr-2">{metadata ? metadata[0]?.siteTitle : "Loading"}</span>
+        </Link>
         <div className="flex items-center space-x-10">
           <ul className="hidden md:flex space-x-5 ms-2 me-2">
-            {
-              navigation.map((item) => (
-                <li key={item.href}>
-                  <Link className="text-white hover:text-black" href={item.href}>
-                    {item.label}
-                  </Link>
-                </li>
-              ))
-            }
+            {navigation.map((item) => (
+              <li key={item.href}>
+                <Link className="text-white hover:text-black" href={item.href}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="flex items-center space-x-4 ms-auto">
@@ -47,34 +51,14 @@ export default function Navbar() {
               placeholder="Search..." />
           </div>
           <button data-collapse-toggle="navbar-menu" type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-menu" aria-expanded="false">
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
             <span className="sr-only">Open main menu</span>
-            <svg className="w-5 h-5" ariaHidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15" />
+            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path>
             </svg>
           </button>
         </div>
       </div>
-      <div className="hidden md:hidden" id="navbar-menu">
-        <ul className="flex flex-col space-y-2 p-4">
-          {
-            navigation.map((item) => (
-              <li key={item.href}>
-                <Link className="text-white hover:text-black" href={item.href}>
-                  {item.label}
-                </Link>
-              </li>
-            ))
-          }
-          <li>
-            <input type="text" id="search-navbar-mobile"
-              className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50"
-              placeholder="Search..." />
-          </li>
-        </ul>
-      </div>
     </nav>
-  )
+  );
 }

@@ -35,5 +35,6 @@ export async function getMetaData(isDraftMode = false) {
     }`,
     isDraftMode
   );
+
   return metadata?.data?.metadataCollection?.items;
 }
