@@ -1,10 +1,30 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useMetadata } from "./context/metadataContext";
+import { getCardInfo } from "@/lib/api";
+
+
 
 export default function Home() {
-  const buttonClass = "bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center";
+  const [cardInfo, setCardInfo] = useState()
   const metadata = useMetadata();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const data = await getCardInfo()
+        setCardInfo(data)
+      } catch (error) {
+        console.error("Error fetching cardInfo", error)
+      }
+    }
+    fetchData()
+  }, [])
+
+  const buttonClass = "bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center";
+
+
 
   return (
     <>
@@ -19,7 +39,7 @@ export default function Home() {
         <div className="max-w-sm w-full lg:max-w-full lg:flex self-center mt-4">
           <div
             className="h-56 lg:h-auto lg:w-48 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-            style={{ backgroundImage: " embedded picture url('./img/1697911452505.jpg')" }} title="Martin">
+            style={{ backgroundImage: "embedded picture url('./img/1697911452505.jpg')" }} title="Martin">
             {/* ContentfulPicture Swap Style backgroundImage */}
           </div>
           <div className="bg-gray-200 rounded-b lg:rounded-b p-4 flex flex-col justify-between leading-normal">
@@ -31,6 +51,20 @@ export default function Home() {
                 <div className="flex flex-col text-center">
                   <div className="flex lg:space-x-4">
                     {/* Contentful PlaceHolder Images */}
+                  </div>
+                  <div className="mt-10 space-x-2 lg:space-x-4">
+                    <Link href="/projects"
+                      className={buttonClass}>
+                      Projects
+                    </Link>
+                    <Link href="/contact"
+                      className={buttonClass}>
+                      Contact
+                    </Link>
+                    <Link href="/about"
+                      className={buttonClass}>
+                      About
+                    </Link>
                   </div>
                 </div>
               </article>

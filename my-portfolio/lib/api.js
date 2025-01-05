@@ -1,5 +1,3 @@
-// Set a variable that contains all the fields needed for articles when a fetch for
-// content is performed
 const METADATA_GRAPHQL_FIELDS = `
   siteTitle
   socialLinks
@@ -7,18 +5,38 @@ const METADATA_GRAPHQL_FIELDS = `
   heroText
 `;
 
+const LANDINGPAGE_GRAPHQL_FIELDS = `
+  cardTitle
+  shortInfo
+  image {
+    url
+    description
+    title
+  }
+  title2
+  techstackImagesCollection {
+    items {
+      title
+      url
+    }
+  }
+`;
+
 async function fetchGraphQL(query, isDraftMode) {
-  const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`, {
+  const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}`;
+  const token = isDraftMode ? process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN : process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
+
+  const response = await fetch(endpoint, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`
+      'Authorization': `Bearer ${token}`
     },
     body: JSON.stringify({ query })
   });
 
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error(`could not fetch data`);
   }
 
   return response.json();
@@ -37,4 +55,18 @@ export async function getMetaData(isDraftMode = false) {
   );
 
   return metadata?.data?.metadataCollection?.items;
+}
+
+export async function getCardInfo(isDraftMode = false) {
+  const cardInfo = await fetchGraphQL(
+    `query {
+      landingPageCollection(preview: ${isDraftMode ? "true" : "false"}) {
+        items {
+          ${LANDINGPAGE_GRAPHQL_FIELDS}
+        }
+      }
+    }`,
+    isDraftMode
+  );
+  return cardInfo?.data?.landingPageCollection?.items;
 }
