@@ -26,20 +26,22 @@ export default async function Projects() {
                 <div
                   key={project.id}
                   className='bg-white rounded-lg shadow-md overflow-hidden'>
+                    <div className="relative h-64 w-full">
                   <Image
                     src={project?.image?.url}
-                    width={1}
-                    height={1}
-                    layout='responsive'
+                    layout='fill'
                     objectFit='cover'
                     alt={project?.image?.title}
-                    className='max-h-[283px]'></Image>
-
+                    className="w-full h-full"></Image>
+</div>
                   <div className='p-4'>
                     <h2 className='font-bold text-xl mb-2'>{project?.title}</h2>
-                    <p className="text-gray-700">{console.log(project?.details?.json?.data)}</p>
-                  </div>
-                </div>
+                    <p className="text-gray-700">
+                      {project?.details?.json?.content[0].content[0].value?.substring(0, 200)}
+                      {project?.details?.json?.content[0].content[0].value?.length > 100 && '...'}</p>
+                  <Link href={`/projects/${project?.title}`} className="text-blue-500 hover:underline mt-2 block">Read more</Link>
+                  </div> 
+                </div> 
               ))}
             </div>
           </div>
