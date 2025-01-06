@@ -22,17 +22,31 @@ const LANDINGPAGE_GRAPHQL_FIELDS = `
   }
 `;
 
+const ALLPROJECTS_GRAPHQL_FIELDS = `
+id
+      title
+      details {
+        json
+      }
+      image {
+        url
+        title
+      }
+`;
+
 async function fetchGraphQL(query, isDraftMode) {
   const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}`;
-  const token = isDraftMode ? process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN : process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
+  const token = isDraftMode
+    ? process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN
+    : process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN;
 
   const response = await fetch(endpoint, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ query })
+    body: JSON.stringify({ query }),
   });
 
   if (!response.ok) {
@@ -40,6 +54,21 @@ async function fetchGraphQL(query, isDraftMode) {
   }
 
   return response.json();
+}
+
+export async function getAllProjects(isDraftMode = false) {
+  const allProjects = await fetchGraphQL(
+    `
+    query {
+      projectsCollection {
+        items {
+          ${ALLPROJECTS_GRAPHQL_FIELDS}
+          }
+        }
+      }`,
+    isDraftMode
+  );
+  return allProjects?.data?.projectsCollection?.items;
 }
 
 export async function getMetaData(isDraftMode = false) {
