@@ -12,8 +12,8 @@ const RichTextRenderer = ({ content }) => {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => <p className="mb-4">{children}</p>,
       [BLOCKS.HEADING_2]: (node, children) => <h2 className="text-2xl font-semibold mb-4">{children}</h2>,
-      [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc list-inside mb-4">{children}</ul>,
-      [BLOCKS.LIST_ITEM]: (node, children) => <li className="font-semibold">{children}</li>,
+      [BLOCKS.UL_LIST]: (node, children) => <ul className="list-disc mb-4">{children}</ul>,
+      [BLOCKS.LIST_ITEM]: (node, children) => <li className="list-item">{children}</li>,
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { url, title } = node.data.target.fields.file;
         return (

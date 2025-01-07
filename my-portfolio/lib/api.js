@@ -32,6 +32,9 @@ educationList {
 workTitle
 workList {
   json}
+  image {
+  title
+  url}
 `;
 
 const ALLPROJECTS_GRAPHQL_FIELDS = `
