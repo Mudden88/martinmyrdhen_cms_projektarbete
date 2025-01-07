@@ -40,6 +40,7 @@ workList {
 const ALLPROJECTS_GRAPHQL_FIELDS = `
 id
       title
+      slug
       details {
         json
       }
@@ -48,6 +49,18 @@ id
         title
       }
 `;
+
+const PROJECT_GRAPHQL_FIELDS = `
+id
+      title
+      slug
+          details {
+        json
+      }
+        image {
+        url
+        title
+      }`;
 
 async function fetchGraphQL(query, isDraftMode) {
   const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}`;
@@ -84,6 +97,21 @@ export async function getAllProjects(isDraftMode = false) {
     isDraftMode
   );
   return allProjects?.data?.projectsCollection?.items;
+}
+
+export async function getProjectBySlug(slug, isDraftMode = false) {
+  const project = await fetchGraphQL(
+    `query {
+      projectsCollection(where: {slug: "${slug}"}, preview: ${isDraftMode ? "true" : "false"}) {
+        items {
+          ${PROJECT_GRAPHQL_FIELDS}
+        }
+      }
+    }`,
+    isDraftMode
+  );
+
+  return project?.data?.projectsCollection?.items[0];
 }
 
 export async function getMetaData(isDraftMode = false) {

@@ -39,7 +39,7 @@ export default async function Projects() {
                     <p className="text-gray-700">
                       {project?.details?.json?.content[0].content[0].value?.substring(0, 250)}
                       {project?.details?.json?.content[0].content[0].value?.length > 250 && '...'}</p>
-                  <Link href={`/projects/${project?.title}`} className="text-blue-500 hover:underline mt-2 block">Read more</Link>
+                  <Link href={`/projects/${project?.slug}`} className="text-blue-500 hover:underline mt-2 block">Read more</Link>
                   </div> 
                 </div> 
               ))}
