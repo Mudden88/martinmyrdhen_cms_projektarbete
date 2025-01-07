@@ -22,6 +22,18 @@ const LANDINGPAGE_GRAPHQL_FIELDS = `
   }
 `;
 
+const ABOUTME_GRAPHQL_FIELDS = `
+titleAbout
+aboutMeText {
+  json}
+educationTitle
+educationList {
+  json}
+workTitle
+workList {
+  json}
+`;
+
 const ALLPROJECTS_GRAPHQL_FIELDS = `
 id
       title
@@ -98,4 +110,18 @@ export async function getCardInfo(isDraftMode = false) {
     isDraftMode
   );
   return cardInfo?.data?.landingPageCollection?.items;
+}
+
+export async function getAboutMe(isDraftMode = false) {
+  const aboutMe = await fetchGraphQL(
+    `query {
+      aboutCollection(preview: ${isDraftMode ? "true" : "false"}) {
+        items {
+          ${ABOUTME_GRAPHQL_FIELDS}
+        }
+      }
+    }`,
+    isDraftMode
+  );
+  return aboutMe?.data?.aboutCollection?.items;
 }
