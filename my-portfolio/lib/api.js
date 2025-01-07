@@ -41,6 +41,8 @@ const ALLPROJECTS_GRAPHQL_FIELDS = `
 id
       title
       slug
+      urlGithub
+      siteUrl
       details {
         json
       }
@@ -54,6 +56,8 @@ const PROJECT_GRAPHQL_FIELDS = `
 id
       title
       slug
+      urlGithub
+      siteUrl
           details {
         json
       }
@@ -110,7 +114,7 @@ export async function getProjectBySlug(slug, isDraftMode = false) {
     }`,
     isDraftMode
   );
-
+// om projekt hittas, returnera första
   return project?.data?.projectsCollection?.items[0];
 }
 
