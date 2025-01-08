@@ -64,6 +64,12 @@ id
         image {
         url
         title
+      }
+         projectImagesCollection {
+        items {
+          url
+          title
+        }
       }`;
 
 async function fetchGraphQL(query, isDraftMode) {
@@ -114,7 +120,7 @@ export async function getProjectBySlug(slug, isDraftMode = false) {
     }`,
     isDraftMode
   );
-// om projekt hittas, returnera första
+  // om projekt hittas, returnera första
   return project?.data?.projectsCollection?.items[0];
 }
 
