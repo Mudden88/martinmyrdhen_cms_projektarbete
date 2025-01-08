@@ -1,9 +1,33 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 import { getAllProjects } from "@/lib/api";
 
-export default async function Projects() {
-  const projects = await getAllProjects();
+export default function Projects() {
+  const [projects, setProjects] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const projectsData = await getAllProjects();
+      console.log("Fetched projects data:", projectsData); // Debugging the fetched data
+      setProjects(projectsData);
+    };
+
+    fetchProjects();
+  }, []);
+
+  // Get unique categories from the projects after data is loaded
+  const categories = [
+    ...new Set(projects.map((project) => project.category)),
+  ];
+
+  console.log("Categories:", categories); // Debugging the categories list
+
+  const filteredProjects = selectedCategory
+    ? projects.filter((project) => project.category === selectedCategory)
+    : projects;
 
   return (
     <>
@@ -22,8 +46,25 @@ export default async function Projects() {
       <main className="p-4 flex flex-col justify-center">
         <section>
           <div className="container mx-auto py-8">
+            {/* Dropdown categories */}
+            <div className="mb-4">
+              <select
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="p-2 border border-gray-300 rounded-md"
+              >
+                <option value="">All Categories</option>
+                {categories.length > 0 && // Ensure categories are present
+                  categories.map((category, index) => (
+                    <option key={index} value={category}>
+                      {category}
+                    </option>
+                  ))}
+              </select>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {projects.map((project) => (
+              {filteredProjects.map((project) => (
                 <div
                   key={project.id}
                   className="bg-white rounded-lg shadow-md overflow-hidden"

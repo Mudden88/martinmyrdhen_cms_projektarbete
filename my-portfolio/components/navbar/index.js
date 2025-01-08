@@ -18,12 +18,20 @@ export default function Navbar() {
     const menu = document.getElementById('navbar-menu');
 
     const toggleMenu = () => {
-      menu.classList.toggle('hidden');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
     };
 
-    menuButton.addEventListener('click', toggleMenu);
+    // Ensure the menuButton is found before adding event listener
+    if (menuButton) {
+      menuButton.addEventListener('click', toggleMenu);
+    }
+
     return () => {
-      menuButton.removeEventListener('click', toggleMenu);
+      if (menuButton) {
+        menuButton.removeEventListener('click', toggleMenu);
+      }
     };
   }, []);
 
@@ -59,6 +67,22 @@ export default function Navbar() {
           </button>
         </div>
       </div>
+      <div id="navbar-menu" className="hidden md:hidden">
+        <ul className="space-y-4">
+          {navigation.map((item) => (
+            <li key={item.href}>
+              <Link className="text-white hover:text-black" href={item.href}>
+                {item.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <input type="text" id="search-navbar"
+          className="block w-full p-2 text-sm mt-2 text-gray-900 border border-gray-300 rounded-lg bg-white"
+          placeholder="Search..." />
+      </div>
+
     </nav>
   );
 }

@@ -43,6 +43,7 @@ id
       slug
       urlGithub
       siteUrl
+      category
       details {
         json
       }
@@ -56,6 +57,7 @@ const PROJECT_GRAPHQL_FIELDS = `
 id
       title
       slug
+      category
       urlGithub
       siteUrl
           details {
