@@ -11,7 +11,6 @@ export default function Projects() {
   useEffect(() => {
     const fetchProjects = async () => {
       const projectsData = await getAllProjects();
-      console.log("Projects Data:", projectsData); // Debugging
       setProjects(projectsData);
     };
 
@@ -105,7 +104,6 @@ export default function Projects() {
                 </div>
               ))}
             </div>
-
           </div>
         </section>
       </main>
