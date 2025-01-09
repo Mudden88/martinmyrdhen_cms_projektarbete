@@ -28,6 +28,7 @@ export default function SearchResults() {
     )
     console.log(filteredProjects)
     return (
+
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">Search Results</h1>
             <p className="mb-2">
@@ -72,7 +73,10 @@ export default function SearchResults() {
                                             </Link>
                                         </div>
                                     </div>
-                                )) : <p>No results were found for <span className="font-bold">&quot;{query}&quot;</span></p>}
+                                )) : <div><p className="mb-3">No results were found for <span className="font-bold">&quot;{query}&quot;</span></p>
+                                    <Link
+                                        href="/projects"
+                                        className="bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition">See All Projects</Link></div>}
                             </div>
                         </div>
                     </section>

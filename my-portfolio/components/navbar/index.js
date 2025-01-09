@@ -56,7 +56,7 @@ export default function Navbar() {
             <ul className="hidden md:flex space-x-5 ms-2 me-2">
               {navigation.map((item) => (
                 <li key={item.href}>
-                  <Link className="text-white hover:text-black" href={item.href}>
+                  <Link className="text-white hover:text-black transition" href={item.href}>
                     {item.label}
                   </Link>
                 </li>

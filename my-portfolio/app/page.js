@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
   const buttonClass =
-    "bg-purple-900 text-white mt-4 py-2 px-4 rounded-lg hover:bg-purple-950 focus:outline-none text-center";
+    "bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition";
   const techStack = cardInfo?.[0]?.techstackImagesCollection?.items || [];
 
   if (!cardInfo) {
