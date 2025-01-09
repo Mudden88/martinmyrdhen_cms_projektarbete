@@ -24,9 +24,6 @@ export default function ProjectSingle() {
   if (!project) {
     return <div>Loading...</div>;
   }
-
-
-
   return (
     <>
       <section>
@@ -50,7 +47,6 @@ export default function ProjectSingle() {
                 height={1080}
                 layout="responsive"
               />
-
             </div>
             <div className="p-4">
               <h2 className="font-bold text-xl mb-0">{project?.title}</h2>
@@ -60,7 +56,9 @@ export default function ProjectSingle() {
               <div className="text-gray-700">
                 <RichTextRenderer content={project?.details?.json} />
               </div>
+              {/* Send ProjectImages to child component */}
               <SwiperComponent projectImages={projectImages} />
+
               <div className="flex items-center space-x-2">
                 <Link href={project?.siteUrl} target="_blank" className="text-blue-500 hover:underline mt-2 block">Visit</Link>
                 <Link href={project?.urlGithub} target="_blank" className="text-blue-500 hover:underline mt-2 block">Github</Link>

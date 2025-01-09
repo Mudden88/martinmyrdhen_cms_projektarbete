@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from 'swiper/modules'
+import { Navigation } from 'swiper/modules'
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -13,8 +13,7 @@ export default function SwiperComponent({ projectImages }) {
 
             <Swiper
                 navigation
-                pagination={{ clickable: true }}
-                modules={[Navigation, Pagination]}>
+                modules={[Navigation]}>
                 {images.map((image, index) => (
                     <SwiperSlide key={index}>
                         <div className="flex justify-center items-center">
