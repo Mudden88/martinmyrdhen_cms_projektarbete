@@ -22,9 +22,9 @@ export default async function RootLayout({ children }) {
           <header className="sticky top-0 z-50">
             <Navbar />
           </header>
-          <main className="flex-auto">
-            {children}
-          </main>
+
+          {children}
+
           <Footer />
         </MetadataProvider>
       </body>
