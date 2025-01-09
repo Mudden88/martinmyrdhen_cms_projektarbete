@@ -14,6 +14,7 @@ export default function ContactForm() {
     const [sendTo] = useState("Martin")
     const metadata = useMetadata()
 
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -34,15 +35,15 @@ export default function ContactForm() {
 
         try {
             await emailjs.send(
-                "service_lsa6g3k",
-                "template_zdsip6k",
+                `${process.env.NEXT_PUBLIC_SERVICE}`,
+                `${process.env.NEXT_PUBLIC_TEMPLATE}`,
                 {
                     user_name,
                     to_name: "Martin",
                     user_message,
                     user_email,
                 },
-                "S8vGnw8J7SRCu_DFe"
+                `${process.env.NEXT_PUBLIC_PUBLIC_KEY}`
             );
 
             alert("Email Successfully Sent!");
