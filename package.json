@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "^16.0.1"
+    "@contentful/rich-text-react-renderer": "^16.0.1",
+    "@emailjs/browser": "^4.4.1"
   }
 }

@@ -4,16 +4,13 @@ import { getProjectBySlug } from "@/lib/api";
 import RichTextRenderer from "@/components/RichTextRender";
 import Image from "next/image";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from 'swiper/modules'
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import SwiperComponent from "@/components/swiper";
 import { useParams } from 'next/navigation';
 
 export default function ProjectSingle() {
   const params = useParams();
   const [project, setProject] = useState(null);
+  const projectImages = project?.projectImagesCollection?.items;
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -28,7 +25,7 @@ export default function ProjectSingle() {
     return <div>Loading...</div>;
   }
 
-  const projectImages = project?.projectImagesCollection?.items;
+
 
   return (
     <>
@@ -63,36 +60,15 @@ export default function ProjectSingle() {
               <div className="text-gray-700">
                 <RichTextRenderer content={project?.details?.json} />
               </div>
-              <div className="flex justify-center">
-
-                <Swiper
-                  navigation
-                  pagination={{ clickable: true }}
-                  modules={[Navigation, Pagination]}>
-                  {projectImages.map((image, index) => (
-                    <SwiperSlide key={index}>
-                      <div className="flex justify-center items-center">
-                        <Image
-                          src={image.url}
-                          alt={image.title}
-                          width={500}
-                          height={500}
-                          style={{ objectFit: "contain" }} // Ensures the image is centered and not stretched
-                        />
-                      </div>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-
-              </div>
-
+              <SwiperComponent projectImages={projectImages} />
               <div className="flex items-center space-x-2">
                 <Link href={project?.siteUrl} target="_blank" className="text-blue-500 hover:underline mt-2 block">Visit</Link>
                 <Link href={project?.urlGithub} target="_blank" className="text-blue-500 hover:underline mt-2 block">Github</Link>
                 <Link href="/projects" className="text-blue-400 hover:underline mt-2 block">
                   Back
                 </Link>
-              </div>            </div>
+              </div>
+            </div>
           </div>
         </section>
       </main>
