@@ -49,7 +49,7 @@ export default function Home() {
           <div
             className='h-56 lg:h-auto lg:w-48 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden'
             style={{
-              backgroundImage: `url(${cardInfo[0]?.image?.url})`,
+              backgroundImage: `url(${cardInfo[0]?.image?.url}?fm=webp)`,
             }}
             title='Martin'></div>
           <div className='bg-gray-200 rounded-b lg:rounded-b p-4 flex flex-col justify-between leading-normal'>
@@ -68,7 +68,7 @@ export default function Home() {
                       techStack.map((item, index) => (
                         <div key={index} className='mb-4 mr-4'>
                           <Image
-                            src={item.url}
+                            src={`${item.url}?fm=webp`}
                             alt={item.title}
                             width={50}
                             height={50}

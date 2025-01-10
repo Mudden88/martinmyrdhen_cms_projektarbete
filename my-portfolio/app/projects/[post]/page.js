@@ -41,7 +41,7 @@ export default function ProjectSingle() {
           <div className="container mx-auto py-8">
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <Image
-                src={project?.image?.url}
+                src={`${project?.image?.url}?fm=webp`}
                 alt={project?.image?.title}
                 width={1920}
                 height={1080}

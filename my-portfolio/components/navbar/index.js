@@ -9,6 +9,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("")
   const router = useRouter()
 
+  //Dynamic rendering of links in navbar
   const navigation = [
     { href: "/", label: "Start" },
     { href: "/about", label: "About" },
@@ -54,6 +55,7 @@ export default function Navbar() {
           </Link>
           <div className="flex items-center space-x-10">
             <ul className="hidden md:flex space-x-5 ms-2 me-2">
+              {/* Dynamic rendering of links in navbar */}
               {navigation.map((item) => (
                 <li key={item.href}>
                   <Link className="text-white hover:text-black transition" href={item.href}>

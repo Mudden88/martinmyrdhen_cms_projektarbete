@@ -4,7 +4,7 @@ import Link from "next/link";
 import emailjs from '@emailjs/browser';
 import { useMetadata } from "@/app/context/metadataContext";
 
-
+// Form with emailJS to send emails
 export default function ContactForm() {
     const [formData, setFormData] = useState({
         user_name: "",

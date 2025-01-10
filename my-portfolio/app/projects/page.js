@@ -76,7 +76,7 @@ export default function Projects() {
                 >
                   <div className="relative h-64 w-full">
                     <Image
-                      src={project?.image?.url}
+                      src={`${project?.image?.url}?fm=webp`}
                       layout="fill"
                       objectFit="cover"
                       alt={project?.image?.title}

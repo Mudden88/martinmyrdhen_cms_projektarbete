@@ -18,7 +18,7 @@ export default function SwiperComponent({ projectImages }) {
                     <SwiperSlide key={index}>
                         <div className="flex justify-center items-center">
                             <Image
-                                src={image.url}
+                                src={`${image.url}?fm=webp`}
                                 alt={image.title}
                                 width={500}
                                 height={500}
