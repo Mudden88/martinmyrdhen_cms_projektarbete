@@ -3,9 +3,9 @@ import React, { createContext, useContext } from "react";
 
 const MetadataContext = createContext();
 
-export const MetadataProvider = ({ metadata, children }) => {
+export const MetadataProvider = ({ metadataCF, children }) => {
   return (
-    <MetadataContext.Provider value={metadata}>
+    <MetadataContext.Provider value={metadataCF}>
       {children}
     </MetadataContext.Provider>
   );

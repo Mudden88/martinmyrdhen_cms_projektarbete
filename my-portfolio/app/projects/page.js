@@ -17,6 +17,11 @@ export default function Projects() {
     fetchProjects();
   }, []);
 
+  //Modify title on client component
+  useEffect(() => {
+    document.title = 'Martin Myrdhén - Projects';
+  }, []);
+
   // Put unique categories from all projects and flatmap into one array of categories
   const categories = [
     ...new Set(

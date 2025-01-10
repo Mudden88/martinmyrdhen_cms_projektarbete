@@ -1,5 +1,9 @@
 import ContactForm from "@/components/contactform"
 
+export const metadata = {
+  title: 'Martin Myrdhén - Contact'
+}
+
 export default function Contact() {
 
   return (

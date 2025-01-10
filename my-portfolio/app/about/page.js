@@ -2,6 +2,10 @@ import RichTextRenderer from '@/components/RichTextRender'
 import { getAboutMe } from '@/lib/api'
 import Image from 'next/image'
 
+export const metadata = {
+  title: 'Martin Myrdhén - About'
+}
+
 export default async function About() {
 
   const aboutMe = await getAboutMe()

@@ -7,7 +7,7 @@ import { getCardInfo } from "@/lib/api";
 
 export default function Home() {
   const [cardInfo, setCardInfo] = useState(null);
-  const metadata = useMetadata();
+  const metadataCF = useMetadata();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,9 +39,9 @@ export default function Home() {
             backgroundImage: "url('yaroslav-a-0rSrUYHg5l8-unsplash.jpg')",
           }}>
           <h1 className='font-bold text-3xl lg:text-6xl text-white self-center'>
-            {metadata[0]?.heroTitle}
+            {metadataCF[0]?.heroTitle}
           </h1>
-          <p className='text-white self-center mt-2'>{metadata[0]?.heroText}</p>
+          <p className='text-white self-center mt-2'>{metadataCF[0]?.heroText}</p>
         </div>
       </section>
       <main className='p-4 flex-auto flex flex-col justify-center'>

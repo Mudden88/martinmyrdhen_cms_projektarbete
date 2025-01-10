@@ -24,6 +24,11 @@ export default function ProjectSingle() {
   if (!project) {
     return <div>Loading...</div>;
   }
+
+  if (project) {
+    document.title = `Martin Myrdhén - ${project.title}`
+  }
+
   return (
     <>
       <section>
