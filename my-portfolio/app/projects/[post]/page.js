@@ -6,11 +6,13 @@ import Image from "next/image";
 import Link from "next/link";
 import SwiperComponent from "@/components/swiper";
 import { useParams } from 'next/navigation';
+import { useMetadata } from "@/app/context/metadataContext";
 
 export default function ProjectSingle() {
   const params = useParams();
   const [project, setProject] = useState(null);
   const projectImages = project?.projectImagesCollection?.items;
+  const metadataCF = useMetadata()
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -34,7 +36,7 @@ export default function ProjectSingle() {
       <section>
         <div
           className="h-60 w-full bg-cover bg-center flex flex-col justify-center"
-          style={{ backgroundImage: "url(/yaroslav-a-0rSrUYHg5l8-unsplash.jpg)" }}
+          style={{ backgroundImage: `url(${metadataCF[0]?.heroImage.url}?fm=webp)` }}
         >
           <h1 className="font-bold text-3xl lg:text-6xl text-white self-center">
             {project?.title}

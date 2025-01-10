@@ -3,10 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { getAllProjects } from "@/lib/api";
+import { useMetadata } from "../context/metadataContext";
 
 export default function Projects() {
   const [projects, setProjects] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const metadataCF = useMetadata()
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -42,7 +44,7 @@ export default function Projects() {
         <div
           className="h-60 w-full bg-cover bg-center flex flex-col justify-center"
           style={{
-            backgroundImage: "url('yaroslav-a-0rSrUYHg5l8-unsplash.jpg')",
+            backgroundImage: `url(${metadataCF[0].heroImage.url}?fm=webp)`,
           }}
         >
           <h1 className="font-bold text-3xl lg:text-6xl text-white self-center">

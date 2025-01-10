@@ -3,6 +3,10 @@ const METADATA_GRAPHQL_FIELDS = `
   socialLinks
   heroTitle
   heroText
+  heroImage {
+      url
+      title
+    }
 `;
 
 const LANDINGPAGE_GRAPHQL_FIELDS = `

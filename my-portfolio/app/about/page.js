@@ -1,13 +1,13 @@
 import RichTextRenderer from '@/components/RichTextRender'
 import { getAboutMe } from '@/lib/api'
+import { getMetaData } from '@/lib/api'
 import Image from 'next/image'
-
 export const metadata = {
   title: 'Martin Myrdhén - About'
 }
 
 export default async function About() {
-
+  const metadataCF = await getMetaData()
   const aboutMe = await getAboutMe()
   const items = aboutMe[0]
 
@@ -17,7 +17,7 @@ export default async function About() {
         <div
           className='h-60 w-full bg-cover bg-center flex flex-col justify-center'
           style={{
-            backgroundImage: "url('yaroslav-a-0rSrUYHg5l8-unsplash.jpg')",
+            backgroundImage: `url(${metadataCF[0].heroImage.url}?fm=webp)`,
           }}>
           <h1 className='font-bold text-3xl lg:text-6xl text-white self-center'>
             About

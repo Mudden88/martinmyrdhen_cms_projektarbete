@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
   const buttonClass =
-    "bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition";
+    "bg-blue-700 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition";
   const techStack = cardInfo?.[0]?.techstackImagesCollection?.items || [];
 
   if (!cardInfo) {
@@ -36,7 +36,7 @@ export default function Home() {
         <div
           className='h-60 w-full bg-cover bg-center flex flex-col justify-center'
           style={{
-            backgroundImage: "url('yaroslav-a-0rSrUYHg5l8-unsplash.jpg')",
+            backgroundImage: `url(${metadataCF[0]?.heroImage.url}?fm=webp)`,
           }}>
           <h1 className='font-bold text-3xl lg:text-6xl text-white self-center'>
             {metadataCF[0]?.heroTitle}
