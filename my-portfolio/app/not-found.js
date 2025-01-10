@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+export const metadata = {
+    title: "404 - Page not found"
+}
+
 export default function Page404() {
     return (
         <>

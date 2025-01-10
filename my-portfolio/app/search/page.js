@@ -21,6 +21,9 @@ export default function SearchResults() {
         fetchProjects()
     }, [])
 
+    useEffect(() => {
+        document.title = 'Martin Myrdhén - Search';
+    }, []);
 
     // Filter projects based on the search query parameter    
     const filteredProjects = project.filter((project) =>
