@@ -78,6 +78,12 @@ id
         }
       }`;
 
+const SOCIALLINKS_GRAPHQL_FIELDS = `
+      title
+      socialName
+      socialUrl
+      `
+
 async function fetchGraphQL(query, isDraftMode) {
   const endpoint = `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}`;
   const token = isDraftMode
@@ -113,6 +119,21 @@ export async function getAllProjects(isDraftMode = false) {
     isDraftMode
   );
   return allProjects?.data?.projectsCollection?.items;
+}
+
+export async function getSocialLinks(isDraftMode = false) {
+  const socialLinks = await fetchGraphQL(
+    `
+    query {
+      socialLinksCollection {
+        items {
+          ${SOCIALLINKS_GRAPHQL_FIELDS}
+          }
+        }
+      }`,
+    isDraftMode
+  );
+  return socialLinks?.data?.socialLinksCollection?.items;
 }
 
 export async function getProjectBySlug(slug, isDraftMode = false) {

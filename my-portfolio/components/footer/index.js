@@ -1,19 +1,32 @@
-"use client"
+import { getMetaData } from "@/lib/api"
+import { getSocialLinks } from "@/lib/api"
 import Link from "next/link"
-import { useMetadata } from "@/app/context/metadataContext";
 
-export default function Footer() {
-  const metadata = useMetadata()
+
+export default async function Footer() {
+  const metadata = await getMetaData()
+  const socials = await getSocialLinks()
+
+  //Connect name with URL. As of now shows correct value only if name and URL is on same index in both arrays.
+  const connectSocials = socials[0].socialName.map((name, index) => ({
+    name,
+    url: socials[0].socialUrl[index]
+  }))
 
   return (
     <footer
       className="w-full text-white bg-gradient-to-r from-cyan-900 to-blue-950 py-4 mt-auto flex justify-between items-end px-4">
       <p className="text-center">&copy; 2024 {metadata[0]?.siteTitle}. All rights reserved.</p>
       <div className="flex flex-col space-y-2">
-        <p className="text-xl">Socials:</p>
-        <Link href={metadata[0]?.socialLinks[0]} className="text-gray-50 hover:text-gray-300" target="_blank"><i className="fa-brands fa-facebook"></i> Facebook</Link>
-        <Link href={metadata[0]?.socialLinks[1]} className="text-gray-50 hover:text-gray-300" target="_blank"><i className="fa-brands fa-linkedin"></i> LinkedIn</Link>
-        <Link href={metadata[0]?.socialLinks[2]} className="text-gray-50 hover:text-gray-300" target="_blank"><i className="fa-brands fa-github"></i> GitHub</Link>
+        <p className="text-xl">{socials[0].title}</p>
+        {connectSocials.map((social) => (
+          <Link
+            key={social.name}
+            href={social.url}
+            className="text-gray-50 hover:text-gray-300"
+            target="_blank">
+            <i className={`fa-brands fa-${social.name.toLowerCase()}`}></i> {social.name}</Link>
+        ))}
       </div>
     </footer>
   )

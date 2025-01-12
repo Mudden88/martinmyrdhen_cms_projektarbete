@@ -17,7 +17,13 @@ Innehållet i Headless-CMS-lösningen ska vara möjligt att administrera från e
   - Kontinuerligt pushande och tydliga commit-meddelanden är en god möjlighet att visa vad ni kan.
   - Det erbjuder också en fungerande kod att återvända till ifall något börjar krångla.
 
-- Portfoliowebplatsen ska bestå av minst dessa sidor, med innehåll hämtat ifrån headless-CMS: - Startsida - rubrik - presentationstext - bild - Projekt-index - varje projekt har: - titel - kort beskrivning - bild - länk till publicerat projekt( eller href="#") - Sida för enskilt projekt - titel - beskrivning - minst 3 bilder - länk till publicerat projekt - Om-mig-sida - Presentationstext - Information om utbildningar - minst 3 - Information om arbetslivserfarenheter - minst 3 - Kontakt-sida - bild - kontaktuppgifter (ex, mail, github, sociala medier) - 404-sida - Lämpligt felmeddelande och länk till startsidan
+- Portfoliowebplatsen ska bestå av minst dessa sidor, med innehåll hämtat ifrån headless-CMS:
+- Startsida - rubrik - presentationstext - bild
+- Projekt-index - varje projekt har: - titel - kort beskrivning - bild - länk till publicerat projekt( eller href="#")
+- Sida för enskilt projekt - titel - beskrivning - minst 3 bilder - länk till publicerat projekt
+- Om-mig-sida - Presentationstext - Information om utbildningar - minst 3 - Information om arbetslivserfarenheter - minst 3
+- Kontakt-sida - bild - kontaktuppgifter (ex, mail, github, sociala medier)
+- 404-sida - Lämpligt felmeddelande och länk till startsidan
 
 - En huvudmeny i någon form ska implementeras med länkar till webbplatsens olika sidor.
 
