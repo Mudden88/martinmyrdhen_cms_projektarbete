@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import emailjs from '@emailjs/browser';
-import { useMetadata } from "@/app/context/metadataContext";
 import { getSocialLinks } from "@/lib/api";
 
 // Form with emailJS to send emails
@@ -13,16 +12,13 @@ export default function ContactForm() {
         user_message: "",
     })
     const [sendTo] = useState("Martin")
-    const [socialData, setSocialData] = useState([])
     const [connectSocials, setConnectSocials] = useState([])
-    const metadata = useMetadata()
 
     //Same logic as footer component but useEffect instead. 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const data = await getSocialLinks();
-                setSocialData(data);
 
                 if (data.length > 0 && data[0].socialName && data[0].socialUrl) {
                     const socials = data[0].socialName.map((name, index) => ({
