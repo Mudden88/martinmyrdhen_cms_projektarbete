@@ -7,7 +7,7 @@ export default async function Footer() {
   const metadata = await getMetaData()
   const socials = await getSocialLinks()
 
-  //Connect name with URL. As of now shows correct value only if name and URL is on same index in both arrays.
+  //Connect name with URL. As of now shows correct values ONLY if name and URL is on same index in both arrays.
   const connectSocials = socials[0].socialName.map((name, index) => ({
     name,
     url: socials[0].socialUrl[index]

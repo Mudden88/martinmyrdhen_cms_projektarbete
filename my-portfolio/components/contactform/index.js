@@ -1,8 +1,9 @@
 "use client"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import emailjs from '@emailjs/browser';
 import { useMetadata } from "@/app/context/metadataContext";
+import { getSocialLinks } from "@/lib/api";
 
 // Form with emailJS to send emails
 export default function ContactForm() {
@@ -12,8 +13,30 @@ export default function ContactForm() {
         user_message: "",
     })
     const [sendTo] = useState("Martin")
+    const [socialData, setSocialData] = useState([])
+    const [connectSocials, setConnectSocials] = useState([])
     const metadata = useMetadata()
 
+    //Same logic as footer component but useEffect instead. 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const data = await getSocialLinks();
+                setSocialData(data);
+
+                if (data.length > 0 && data[0].socialName && data[0].socialUrl) {
+                    const socials = data[0].socialName.map((name, index) => ({
+                        name,
+                        url: data[0].socialUrl[index],
+                    }));
+                    setConnectSocials(socials);
+                }
+            } catch (error) {
+                console.error("Error fetching social links:", error);
+            }
+        };
+        fetchData();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -39,7 +62,7 @@ export default function ContactForm() {
                 `${process.env.NEXT_PUBLIC_TEMPLATE}`,
                 {
                     user_name,
-                    to_name: "Martin",
+                    to_name: sendTo,
                     user_message,
                     user_email,
                 },
@@ -119,9 +142,8 @@ export default function ContactForm() {
 
                 </form>
                 <div className="flex justify-center">
-                    <Link href={metadata[0]?.socialLinks[0]} target="_blank" className="mr-4"><i className="fa-brands fa-facebook text-6xl text-blue-800"></i> </Link>
-                    <Link href={metadata[0]?.socialLinks[1]} target="_blank" className="mr-4"><i className="fa-brands fa-linkedin text-6xl text-blue-700"></i> </Link>
-                    <Link href={metadata[0]?.socialLinks[2]} target="_blank" className="mr-4"><i className="fa-brands fa-github text-6xl"></i> </Link>
+                    {connectSocials.length > 0 ? connectSocials.map((social) => (<Link key={social.name} href={social.url} className="text-black mr-3 hover:text-blue-500" target="_blank"><i className={`fa-brands fa-${social.name.toLowerCase()} text-6xl`}></i></Link>)) : <div>Loading</div>}
+
                 </div>
             </div>
         </>
