@@ -1,12 +1,19 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllProjects } from "@/lib/api";
 
+function SuspenceSR() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <SearchResults />
+        </Suspense>
+    )
+}
 
-export default function SearchResults() {
+function SearchResults() {
 
     const [project, setProject] = useState([])
 
@@ -89,3 +96,5 @@ export default function SearchResults() {
         </div>
     );
 }
+
+export default SuspenceSR
