@@ -97,6 +97,7 @@ async function fetchGraphQL(query, isDraftMode) {
       Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ query }),
+    next: { tags: ["project", "content"] }
   });
 
   if (!response.ok) {

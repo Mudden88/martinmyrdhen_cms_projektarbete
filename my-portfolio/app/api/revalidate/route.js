@@ -1,23 +1,16 @@
 import { NextResponse } from "next/server";
-import crypto from "crypto";
+import { revalidateTag } from "next/cache";
 
-export async function GET(request) {
-    const secretKey = process.env.REVALIDATION_SECRET
-    const secretFromReq = request.nextUrl.searchParams.get('secret')
-    const pathToRevalidate = request.nextUrl.searchParams.get('path') || '/';
+export async function POST(request) {
+    const requestHeaders = new Headers(request.headers);
+    const secret = requestHeaders.get("x-vercel-reval-key");
 
-    if (!secretFromReq || !crypto.timingSafeEqual(Buffer.from(secretFromReq), Buffer.from(secretKey))) {
-        return NextResponse.json({ message: 'Invalid secret' }, { status: 401 });
+    if (secret !== process.env.CONTENTFUL_REVALIDATE_SECRET) {
+        return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
     }
 
-    try {
-        await res.revalidate(pathToRevalidate)
-        return NextResponse.json({ revalidated: true, now: Date.now() })
+    revalidateTag("projects");
+    revalidateTag("content");
 
-    } catch (error) {
-        return NextResponse.json(
-            { message: 'Revalidation failed', error: error.message },
-            { status: 500 }
-        )
-    }
+    return NextResponse.json({ revalidated: true, now: Date.now() });
 }
