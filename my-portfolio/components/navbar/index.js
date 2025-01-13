@@ -102,6 +102,7 @@ export default function Navbar() {
               type="text"
               id="search-navbar"
               value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
               className="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white"
               placeholder="Search..." />
           </form>
