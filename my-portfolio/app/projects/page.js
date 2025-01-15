@@ -63,7 +63,7 @@ export default function Projects() {
                   onChange={(e) => setSelectedCategory(e.target.value)}
                   className="p-2 border border-gray-300 rounded-md"
                 >
-                  <option value="">All Categories</option>
+                  <option value="" aria-label="Categories">All Categories</option>
                   {categories.length > 0 &&
                     categories.map((category, index) => (
                       <option key={index} value={category}>

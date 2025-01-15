@@ -17,7 +17,7 @@ export default async function Footer() {
     <footer
       className="w-full text-white bg-gradient-to-r from-cyan-900 to-blue-950 py-4 mt-auto flex justify-between items-end px-4">
       <p className="text-center">&copy; 2024 {metadata[0]?.siteTitle}. All rights reserved.</p>
-      <div className="flex flex-col space-y-2">
+      <div className="flex flex-col space-y-2" aria-label="Social Links">
         <p className="text-xl">{socials[0].title}</p>
         {connectSocials.map((social) => (
           <Link

@@ -39,7 +39,7 @@ function SearchResults() {
     console.log(filteredProjects)
     return (
 
-        <div className="p-4">
+        <div className="p-4" aria-label="Search Results">
             <h1 className="text-2xl font-bold mb-4">Search Results</h1>
             <p className="mb-2">
                 You searched for: <span className="font-semibold">{query}</span>

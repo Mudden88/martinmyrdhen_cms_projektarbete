@@ -48,7 +48,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="p-2 bg-gradient-to-r from-cyan-900 to-blue-950">
+      <nav className="p-2 bg-gradient-to-r from-cyan-900 to-blue-950" aria-label="Main Menu">
         <div className="container flex items-center">
           <Link href="/">
             <span className="text-white font-bold border-r pr-2">{metadataCF ? metadataCF[0]?.siteTitle : "Loading"}</span>
@@ -66,7 +66,7 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="flex items-center space-x-4 ms-auto">
-            <div className="relative hidden md:block">
+            <div className="relative hidden md:block" aria-label="Search">
               <form onSubmit={handleSearch}>
                 <input
                   type="text"

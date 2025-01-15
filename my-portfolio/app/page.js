@@ -79,7 +79,7 @@ export default function Home() {
                       <div>Loading...</div>
                     )}
                   </div>
-                  <div className='mt-10 space-x-2 lg:space-x-4'>
+                  <div className='mt-10 space-x-2 lg:space-x-4' aria-label="Site Links">
                     <Link href='/projects' className={buttonClass}>
                       Projects
                     </Link>

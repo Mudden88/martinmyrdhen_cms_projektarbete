@@ -87,7 +87,7 @@ export default function ContactForm() {
                 <p className="text-gray-600 mb-6">
                     Fill out the form below to get in touch with me. I´ll reply as soon as possible.
                 </p>
-                <form onSubmit={sendEmail} className="space-y-4">
+                <form onSubmit={sendEmail} className="space-y-4" aria-label="Contant Form">
                     <div className="flex flex-col">
                         <label htmlFor="user_name" className="text-gray-700 font-medium mb-2">
                             Name

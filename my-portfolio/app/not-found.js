@@ -8,7 +8,7 @@ export default function Page404() {
     return (
         <>
             <main className="flex-auto text-center bg-black text-white">
-                <div className="mt-12" >
+                <div className="mt-12" aria-label="Not Found">
 
                     <h1 className="text-6xl font-bold">OH NO!</h1>
                     <h2 className="text-9xl font-bold">404</h2>

@@ -9,7 +9,7 @@ export default function SwiperComponent({ projectImages }) {
     const images = projectImages
 
     return (
-        <div className="flex justify-center">
+        <div className="swiper-wrapper">
 
             <Swiper
                 navigation
